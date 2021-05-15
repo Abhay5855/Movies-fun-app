@@ -39,77 +39,52 @@
     color: white;
     background: rgb(0, 0, 0);
     background: rgba(0, 0, 0, 0.5); /* Black see-through */
-    
 
-    .row__poster {
-   
-      display: flex;
-      overflow-y: hidden;
-      overflow-x: scroll;
-  
-  
-  }
-  
-  
-  .row__poster::-webkit-scrollbar {
-      display: none;
-  }
-  
-  
-  
-  
-  .row__contains {
-  
-      position: relative;
-      transition: transform 0.2s; 
-      width:320px;
-      height: 450px;
-  } 
-  
-  
-  .row__contains:hover {
-      cursor: pointer;
-      /* transform: scale(1); */
-  
-  }
-  .row__contains:hover .row__overlay {
-  
-      opacity:1;
-      
-  }
-  
-  
-  .row__overlay {
-      position: absolute;
-      background: rgba(0, 0, 0, 0.8);
-      width:320px;
-      transition: 0.3s ease; 
-      opacity: 0;
-      font-size:15px;
-      color:white;
-      height:450px;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      text-align: center;
-      
-     
-  }
-  
-  .row__image {
-      
-      
-      height:450px;
-      padding:20px;
-      
-  }
-  
-  .row__overlay > i {
-  
-      color: red;
-  } 
-  
-  
-  
-  
-  
+.row__poster {
+  display: flex;
+  overflow-y: hidden;
+  overflow-x: scroll;
+}
+
+.row__poster::-webkit-scrollbar {
+  display: none;
+}
+
+.row__contains {
+  position: relative;
+  transition: transform 0.2s;
+  width: 320px;
+  height: 450px;
+}
+
+.row__contains:hover {
+  cursor: pointer;
+  /* transform: scale(1); */
+}
+.row__contains:hover .row__overlay {
+  opacity: 1;
+}
+
+.row__overlay {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.8);
+  width: 320px;
+  transition: 0.3s ease;
+  opacity: 0;
+  font-size: 15px;
+  color: white;
+  height: 450px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.row__image {
+  height: 450px;
+  padding: 20px;
+}
+
+.row__overlay > i {
+  color: red;
+}

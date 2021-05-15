@@ -14,7 +14,7 @@ function App() {
   const [favourite, setFavourite] = useState([]);
 
   async function fetchData(input) {
-    const fetch_url = `http://www.omdbapi.com/?s=${input}&apikey=e86e479e`;
+    const fetch_url = `https://www.omdbapi.com/?s=${input}&apikey=e86e479e`;
 
     const request = await fetch(fetch_url);
 
@@ -33,12 +33,22 @@ function App() {
     const moviefav = JSON.parse(
       localStorage.getItem("react-movie-app-favourites")
     );
-
-    setFavourite(moviefav);
+    // moviefav can be null also
+    if (Array.isArray(moviefav)) {
+      setFavourite(moviefav);
+    }
   }, []);
 
-  const addFavouriteMovie = (movie) => {
-    const newlikedmovies = [...favourite, movie];
+  const addFavouriteMovie = (movieObj) => {
+    // find if movie already there or not
+    const isAlreadyFavourite = favourite.filter(
+      (eachMovieObj) => eachMovieObj.imdbID === movieObj.imdbID
+    );
+    if (isAlreadyFavourite.length > 0) {
+      // If already there do nothing
+      return;
+    }
+    const newlikedmovies = [...favourite, movieObj];
 
     setFavourite(newlikedmovies);
     saveToLocalStorage(newlikedmovies);
@@ -50,6 +60,8 @@ function App() {
     );
 
     setFavourite(removeList);
+    //remove the same from local-storage also
+    saveToLocalStorage(removeList);
   };
 
   const saveToLocalStorage = (items) => {
